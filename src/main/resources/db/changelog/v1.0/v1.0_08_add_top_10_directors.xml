@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.27.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="25_11_2024_add_top_10_directors" author="Alena_Guskova"
+               dbms="${dbms}">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*)
+                from ${schema}.director
+            </sqlCheck>
+        </preConditions>
+
+        <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="VAWDZWKY3PS45TC7KYAVRQKSEGSMXKPJ3"/>
+            <column name="first_name" value="Оливье"/>
+            <column name="last_name" value="Накаш"/>
+        </insert>
+        <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="BKDNH4Q3U63IT7IJCBBYGH4VU76LZEITV="/>
+            <column name="first_name" value="Кристофер"/>
+            <column name="last_name" value="Нолан"/>
+        </insert>
+        <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="ZMWYHH6TNXKSF6CTT5WYPZHOKMOYBLEHT"/>
+            <column name="first_name" value="Фрэнк"/>
+            <column name="last_name" value="Дарабонт"/>
+        </insert>
+        <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="VW3Q2MW7SPHLI6V6Y3ZFO6N5AMOSBDOUQ"/>
+            <column name="first_name" value="Мартин"/>
+            <column name="last_name" value="Скорсезе"/>
+        </insert>
+        <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="43DQOO7SL2Z5S4YIPAKVO5WLWE7VPO2LP"/>
+            <column name="first_name" value="Дэвид"/>
+            <column name="last_name" value="Финчер"/>
+        </insert>
+        <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="RQTWWSH5IC3TNYRPJ5YL5UYHAALON6KOP"/>
+            <column name="first_name" value="Роберт"/>
+            <column name="last_name" value="Земекис"/>
+        </insert>
+        <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="IVAX5QJPMSWLYUJ6PK3JFKZB6NSCXZ2SH"/>
+            <column name="first_name" value="Хаяо"/>
+            <column name="last_name" value="Миядзаки"/>
+        </insert>
+        <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="VUBMYE5Y3DWAV6DPXYWXR7HD6P3T7QXUU"/>
+            <column name="first_name" value="Питер"/>
+            <column name="last_name" value="Джексон"/>
+        </insert>
+        <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="CAQKHTFUJW7MQDG2D7QSM5NQDJPW6JKTF"/>
+            <column name="first_name" value="Люк"/>
+            <column name="last_name" value="Бессон"/>
+        </insert>
+        <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="EJTZ4NGV7GYRHNT4SYGA4BJXL46BAHTXZ"/>
+            <column name="first_name" value="Гай"/>
+            <column name="last_name" value="Ричи"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

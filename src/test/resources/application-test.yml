@@ -1,0 +1,22 @@
+spring:
+  shell:
+    interactive:
+      enabled: false
+  test:
+    database:
+      replace: none
+  liquibase:
+    enabled: true
+  jpa:
+    show_sql: true
+  datasource:
+    url: jdbc:h2:mem:movie_catalog;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS movie_schema\;SET SCHEMA movie_schema
+
+logging:
+  level:
+    liquibase: INFO
+  file:
+    name:
+  threshold:
+    console: INFO
+    file: ERROR

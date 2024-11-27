@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.27.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="25_11_2024_add_top_5_genres" author="Alena_Guskova"
+               dbms="${dbms}">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*)
+                from ${schema}.genre
+            </sqlCheck>
+        </preConditions>
+
+        <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+            <column name="title" value="драма"/>
+        </insert>
+        <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="PAWMQAPMCMWRAGUN2RIUADEMRZR2Y3WH="/>
+            <column name="title" value="триллер"/>
+        </insert>
+        <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="QJIS4G5RM6Z4XDBLITW32655WOIIMWUBD"/>
+            <column name="title" value="фантастика"/>
+        </insert>
+        <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="RD4IXX5HU2CDTW23FL6Z6ZQEOOWQPMU7D"/>
+            <column name="title" value="аниме"/>
+        </insert>
+        <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="MZHPJANCLZTISDBANQHU3DVCZP5EDU3J9"/>
+            <column name="title" value="фэнтези"/>
+        </insert>
+        <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="W6Q3AK5E56UHP22IABOCJO2ZXBI5RXPNS"/>
+            <column name="title" value="криминал"/>
+        </insert>
+        <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="CB74INE5AU5KGFNKIO3FGI7XB75N53R2V"/>
+            <column name="title" value="комедия"/>
+        </insert>
+        <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="JLEWEWDQITKWSBB2EQKJDDWU3FNAVGZJC"/>
+            <column name="title" value="приключения"/>
+        </insert>
+        <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="ZFJ3VHIDOW4NXQG5JOWR5FDNWE3BYSOXK"/>
+            <column name="title" value="детектив"/>
+        </insert>
+        <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="6JZO27DDILMXTBBYA3LA2GVKTME6THEF$"/>
+            <column name="title" value="военный"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

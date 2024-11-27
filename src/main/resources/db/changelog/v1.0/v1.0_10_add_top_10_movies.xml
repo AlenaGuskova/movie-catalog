@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.27.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="25_11_2024_add_top_10_movies" author="Alena_Guskova"
+               dbms="${dbms}">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*)
+                from ${schema}.movie
+            </sqlCheck>
+        </preConditions>
+
+        <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="ANLGF35FKR7H22X7Y4QI75E7ADKGDNGK9"/>
+            <column name="title" value="1+1"/>
+            <column name="director_id"
+                    value="VAWDZWKY3PS45TC7KYAVRQKSEGSMXKPJ3"/>
+        </insert>
+        <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="3OAVA3DMFVXYJFOMVX6XYY5EF2A7JUQ77"/>
+            <column name="title" value="Интерстеллар"/>
+            <column name="director_id"
+                    value="BKDNH4Q3U63IT7IJCBBYGH4VU76LZEITV="/>
+        </insert>
+        <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="OJMXUH2L5D6VYDWKGCF4MLYGDUHI5OJEF"/>
+            <column name="title" value="Побег из Шоушенка"/>
+            <column name="director_id"
+                    value="ZMWYHH6TNXKSF6CTT5WYPZHOKMOYBLEHT"/>
+        </insert>
+        <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="LE4RE6MPEGY2VPUZX2EMPVXB4BGMQ74BV"/>
+            <column name="title" value="Зеленая миля"/>
+            <column name="director_id"
+                    value="ZMWYHH6TNXKSF6CTT5WYPZHOKMOYBLEHT"/>
+        </insert>
+        <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="CNUBQDOR6OQSTWXXHLT2WXQZ44JBMM7XZ"/>
+            <column name="title" value="Остров проклятых"/>
+            <column name="director_id"
+                    value="VW3Q2MW7SPHLI6V6Y3ZFO6N5AMOSBDOUQ"/>
+        </insert>
+        <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="title" value="Бойцовский клуб"/>
+            <column name="director_id"
+                    value="43DQOO7SL2Z5S4YIPAKVO5WLWE7VPO2LP"/>
+        </insert>
+        <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="4JP2QFO7IKBC5HTU2BVPENLLYLJ4L2XG2"/>
+            <column name="title" value="Форрест Гамп"/>
+            <column name="director_id"
+                    value="RQTWWSH5IC3TNYRPJ5YL5UYHAALON6KOP"/>
+        </insert>
+        <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="GPSUXXKYX77FXD72HJMDSDV77N5MHXJ3E"/>
+            <column name="title" value="Унесённые призраками"/>
+            <column name="director_id"
+                    value="IVAX5QJPMSWLYUJ6PK3JFKZB6NSCXZ2SH"/>
+        </insert>
+        <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="VONQUE7X4WTQ4UQK4GLL723UVHD3MENBN"/>
+            <column name="title" value="Властелин колец: Возвращение короля"/>
+            <column name="director_id"
+                    value="VUBMYE5Y3DWAV6DPXYWXR7HD6P3T7QXUU"/>
+        </insert>
+        <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="VVSAYW5BCLQGODBA6OMW3DVYBT53ACQMQ"/>
+            <column name="title" value="Властелин колец: Братство Кольца"/>
+            <column name="director_id"
+                    value="VUBMYE5Y3DWAV6DPXYWXR7HD6P3T7QXUU"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="25_11_2024_add_top_10_movie_genres" author="Alena_Guskova"
+               dbms="${dbms}">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*)
+                from ${schema}.movie_genre
+            </sqlCheck>
+        </preConditions>
+
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="ANLGF35FKR7H22X7Y4QI75E7ADKGDNGK9"/>
+            <column name="genre_id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="ANLGF35FKR7H22X7Y4QI75E7ADKGDNGK9"/>
+            <column name="genre_id" value="CB74INE5AU5KGFNKIO3FGI7XB75N53R2V"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="3OAVA3DMFVXYJFOMVX6XYY5EF2A7JUQ77"/>
+            <column name="genre_id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="3OAVA3DMFVXYJFOMVX6XYY5EF2A7JUQ77"/>
+            <column name="genre_id" value="QJIS4G5RM6Z4XDBLITW32655WOIIMWUBD"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="3OAVA3DMFVXYJFOMVX6XYY5EF2A7JUQ77"/>
+            <column name="genre_id" value="JLEWEWDQITKWSBB2EQKJDDWU3FNAVGZJC"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="OJMXUH2L5D6VYDWKGCF4MLYGDUHI5OJEF"/>
+            <column name="genre_id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="LE4RE6MPEGY2VPUZX2EMPVXB4BGMQ74BV"/>
+            <column name="genre_id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="LE4RE6MPEGY2VPUZX2EMPVXB4BGMQ74BV"/>
+            <column name="genre_id" value="MZHPJANCLZTISDBANQHU3DVCZP5EDU3J9"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="LE4RE6MPEGY2VPUZX2EMPVXB4BGMQ74BV"/>
+            <column name="genre_id" value="W6Q3AK5E56UHP22IABOCJO2ZXBI5RXPNS"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="CNUBQDOR6OQSTWXXHLT2WXQZ44JBMM7XZ"/>
+            <column name="genre_id" value="PAWMQAPMCMWRAGUN2RIUADEMRZR2Y3WH="/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="CNUBQDOR6OQSTWXXHLT2WXQZ44JBMM7XZ"/>
+            <column name="genre_id" value="ZFJ3VHIDOW4NXQG5JOWR5FDNWE3BYSOXK"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="CNUBQDOR6OQSTWXXHLT2WXQZ44JBMM7XZ"/>
+            <column name="genre_id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="genre_id" value="PAWMQAPMCMWRAGUN2RIUADEMRZR2Y3WH="/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="genre_id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="genre_id" value="W6Q3AK5E56UHP22IABOCJO2ZXBI5RXPNS"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="4JP2QFO7IKBC5HTU2BVPENLLYLJ4L2XG2"/>
+            <column name="genre_id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="4JP2QFO7IKBC5HTU2BVPENLLYLJ4L2XG2"/>
+            <column name="genre_id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="4JP2QFO7IKBC5HTU2BVPENLLYLJ4L2XG2"/>
+            <column name="genre_id" value="CB74INE5AU5KGFNKIO3FGI7XB75N53R2V"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="4JP2QFO7IKBC5HTU2BVPENLLYLJ4L2XG2"/>
+            <column name="genre_id" value="6JZO27DDILMXTBBYA3LA2GVKTME6THEF$"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="GPSUXXKYX77FXD72HJMDSDV77N5MHXJ3E"/>
+            <column name="genre_id" value="RD4IXX5HU2CDTW23FL6Z6ZQEOOWQPMU7D"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="VONQUE7X4WTQ4UQK4GLL723UVHD3MENBN"/>
+            <column name="genre_id" value="MZHPJANCLZTISDBANQHU3DVCZP5EDU3J9"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="VONQUE7X4WTQ4UQK4GLL723UVHD3MENBN"/>
+            <column name="genre_id" value="JLEWEWDQITKWSBB2EQKJDDWU3FNAVGZJC"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="VVSAYW5BCLQGODBA6OMW3DVYBT53ACQMQ"/>
+            <column name="genre_id" value="MZHPJANCLZTISDBANQHU3DVCZP5EDU3J9"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="VVSAYW5BCLQGODBA6OMW3DVYBT53ACQMQ"/>
+            <column name="genre_id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="VONQUE7X4WTQ4UQK4GLL723UVHD3MENBN"/>
+            <column name="genre_id" value="MZHPJANCLZTISDBANQHU3DVCZP5EDU3J9"/>
+        </insert>
+        <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="VONQUE7X4WTQ4UQK4GLL723UVHD3MENBN"/>
+            <column name="genre_id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="25_11_2024_add_top_10_movie_actors" author="Alena_Guskova"
+               dbms="${dbms}">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*)
+                from ${schema}.movie_actor
+            </sqlCheck>
+        </preConditions>
+
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="ANLGF35FKR7H22X7Y4QI75E7ADKGDNGK9"/>
+            <column name="actor_id" value="MKZPSTCOCLW3G75LWXIMUINS6S5OK7ZLR"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="ANLGF35FKR7H22X7Y4QI75E7ADKGDNGK9"/>
+            <column name="actor_id" value="WPHFPMOFVQPZXFF5CTDI53HKGQORWNUBU"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="3OAVA3DMFVXYJFOMVX6XYY5EF2A7JUQ77"/>
+            <column name="actor_id" value="GMJKKTVHIW3M5AMSWEPPPBHCX4OP3OFA~"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="3OAVA3DMFVXYJFOMVX6XYY5EF2A7JUQ77"/>
+            <column name="actor_id" value="EGFPIC4LZ53XHE4A37JAZS5RBN3UQTNT0"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="OJMXUH2L5D6VYDWKGCF4MLYGDUHI5OJEF"/>
+            <column name="actor_id" value="7UOIQHTHFH5SX6IQU236GKU5CRL25HYU8"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="OJMXUH2L5D6VYDWKGCF4MLYGDUHI5OJEF"/>
+            <column name="actor_id" value="VHB6O5XVIRGJKG7XI4TK7T3WWUJUXFMBQ"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="LE4RE6MPEGY2VPUZX2EMPVXB4BGMQ74BV"/>
+            <column name="actor_id" value="EQLUV6PJJ23RJSKALLHFLGCL62AKOZS32"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="LE4RE6MPEGY2VPUZX2EMPVXB4BGMQ74BV"/>
+            <column name="actor_id" value="PCNM5ZWE37CL24L2GQA7ANWFAY6R3CABF"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="CNUBQDOR6OQSTWXXHLT2WXQZ44JBMM7XZ"/>
+            <column name="actor_id" value="3ZMNPELHO5CX7TZLNSOX66IFNOX4MEUTB"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="CNUBQDOR6OQSTWXXHLT2WXQZ44JBMM7XZ"/>
+            <column name="actor_id" value="GBCLOKLDFRF7FQCY57FR4MGTFHK2KV77X"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="actor_id" value="CMHOODYG6GIDX7I6SOYH5ZWPR5TOCEAG8"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="actor_id" value="DYPSJ6VHCND2NAGNTNUKYVBFTX23YP3IJ"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="4JP2QFO7IKBC5HTU2BVPENLLYLJ4L2XG2"/>
+            <column name="actor_id" value="EQLUV6PJJ23RJSKALLHFLGCL62AKOZS32"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="4JP2QFO7IKBC5HTU2BVPENLLYLJ4L2XG2"/>
+            <column name="actor_id" value="R3GT5TV3TYB6BSCHT5G5MZ5TJEBDCGVWF"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="GPSUXXKYX77FXD72HJMDSDV77N5MHXJ3E"/>
+            <column name="actor_id" value="NJ2ZJHZ6VGKRMLNTRXNJKM3B5K455HXIF"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="GPSUXXKYX77FXD72HJMDSDV77N5MHXJ3E"/>
+            <column name="actor_id" value="J67TUWVIS6YKLPVXDHVEZVJFTFQJLETRM"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="VONQUE7X4WTQ4UQK4GLL723UVHD3MENBN"/>
+            <column name="actor_id" value="ZCZNQLEP5S3KQCKINZN3PE3F7I2GVY3S6"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="VONQUE7X4WTQ4UQK4GLL723UVHD3MENBN"/>
+            <column name="actor_id" value="UMVMV5SSVIFUXXHQQVJ4TVTZ74ENFKATR"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="VVSAYW5BCLQGODBA6OMW3DVYBT53ACQMQ"/>
+            <column name="actor_id" value="ZCZNQLEP5S3KQCKINZN3PE3F7I2GVY3S6"/>
+        </insert>
+        <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="movie_id" value="VVSAYW5BCLQGODBA6OMW3DVYBT53ACQMQ"/>
+            <column name="actor_id" value="CI3S2RZE4C37KMCZTYDFVDJSFEZE4ETQK"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

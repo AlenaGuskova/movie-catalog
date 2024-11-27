@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.27.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="25_11_2024_add_top_20_actors" author="Alena_Guskova"
+               dbms="${dbms}">
+        <preConditions onFail="MARK_RAN">
+            <sqlCheck expectedResult="0">
+                select count(*)
+                from ${schema}.actor
+            </sqlCheck>
+        </preConditions>
+
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="MKZPSTCOCLW3G75LWXIMUINS6S5OK7ZLR"/>
+            <column name="first_name" value="Франсуа"/>
+            <column name="last_name" value="Клюзе"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="WPHFPMOFVQPZXFF5CTDI53HKGQORWNUBU"/>
+            <column name="first_name" value="Омар"/>
+            <column name="last_name" value="Си"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="GMJKKTVHIW3M5AMSWEPPPBHCX4OP3OFA~"/>
+            <column name="first_name" value="Мэттью"/>
+            <column name="last_name" value="Макконахи"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="EGFPIC4LZ53XHE4A37JAZS5RBN3UQTNT0"/>
+            <column name="first_name" value="Энн"/>
+            <column name="last_name" value="Хэтэуэй"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="7UOIQHTHFH5SX6IQU236GKU5CRL25HYU8"/>
+            <column name="first_name" value="Тим"/>
+            <column name="last_name" value="Роббинс"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="VHB6O5XVIRGJKG7XI4TK7T3WWUJUXFMBQ"/>
+            <column name="first_name" value="Морган"/>
+            <column name="last_name" value="Фриман"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="EQLUV6PJJ23RJSKALLHFLGCL62AKOZS32"/>
+            <column name="first_name" value="Том"/>
+            <column name="last_name" value="Хэнкс"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="PCNM5ZWE37CL24L2GQA7ANWFAY6R3CABF"/>
+            <column name="first_name" value="Дэвид"/>
+            <column name="last_name" value="Морс"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="3ZMNPELHO5CX7TZLNSOX66IFNOX4MEUTB"/>
+            <column name="first_name" value="Леонардо"/>
+            <column name="last_name" value="ДиКаприо"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="GBCLOKLDFRF7FQCY57FR4MGTFHK2KV77X"/>
+            <column name="first_name" value="Марк"/>
+            <column name="last_name" value="Руффало"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="CMHOODYG6GIDX7I6SOYH5ZWPR5TOCEAG8"/>
+            <column name="first_name" value="Эдвард"/>
+            <column name="last_name" value="Нортон"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="DYPSJ6VHCND2NAGNTNUKYVBFTX23YP3IJ"/>
+            <column name="first_name" value="Брэд"/>
+            <column name="last_name" value="Питт"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="R3GT5TV3TYB6BSCHT5G5MZ5TJEBDCGVWF"/>
+            <column name="first_name" value="Робин"/>
+            <column name="last_name" value="Райт"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="NJ2ZJHZ6VGKRMLNTRXNJKM3B5K455HXIF"/>
+            <column name="first_name" value="Руми"/>
+            <column name="last_name" value="Хиираги"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="J67TUWVIS6YKLPVXDHVEZVJFTFQJLETRM"/>
+            <column name="first_name" value="Мию"/>
+            <column name="last_name" value="Ирино"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="ZCZNQLEP5S3KQCKINZN3PE3F7I2GVY3S6"/>
+            <column name="first_name" value="Элайджа"/>
+            <column name="last_name" value="Вуд"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="UMVMV5SSVIFUXXHQQVJ4TVTZ74ENFKATR"/>
+            <column name="first_name" value="Вигго"/>
+            <column name="last_name" value="Мортенсен"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="CI3S2RZE4C37KMCZTYDFVDJSFEZE4ETQK"/>
+            <column name="first_name" value="Иэн"/>
+            <column name="last_name" value="Маккеллен"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="SN62236Z7HQKCNT3NURMUY2JNZQWFZD53"/>
+            <column name="first_name" value="Жан"/>
+            <column name="last_name" value="Рено"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="O6HYTXS45SCSVSQOP5YKFTCVVDL5UBBPZ"/>
+            <column name="first_name" value="Натали"/>
+            <column name="last_name" value="Портман"/>
+        </insert>
+        <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
+            <column name="id" value="E7DEHU273MD644TZ5JE7LSNBJMZ7FSFQU"/>
+            <column name="first_name" value="Чарли"/>
+            <column name="last_name" value="Ханнэм"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
