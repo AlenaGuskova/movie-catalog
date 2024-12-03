@@ -1,8 +1,8 @@
 INSERT INTO director (id, first_name, last_name)
-VALUES ('VAWDZWKY3PS45TC7KYAVRQKSEGSMXKPJ3', 'Оливье', 'Накаш');
+VALUES ('544e0aef-cb6f-413e-8e56-667c2f739e4d', 'Оливье', 'Накаш');
 
 INSERT INTO director (id, first_name, last_name)
-VALUES ('VUBMYE5Y3DWAV6DPXYWXR7HD6P3T7QXUU', 'Питер', 'Джексон');
+VALUES ('5483a2d9-6fa8-4ab9-b82a-cd032094dd12', 'Питер', 'Джексон');
 
 INSERT INTO director (id, first_name, last_name)
-VALUES ('IVAX5QJPMSWLYUJ6PK3JFKZB6NSCXZ2SH', 'Хаяо', 'Миядзаки');
+VALUES ('1a3ea417-14b5-4525-bac8-58f7dfd613a6', 'Хаяо', 'Миядзаки');

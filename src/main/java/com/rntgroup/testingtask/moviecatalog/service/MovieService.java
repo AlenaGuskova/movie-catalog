@@ -1,25 +1,31 @@
 package com.rntgroup.testingtask.moviecatalog.service;
 
-import com.rntgroup.testingtask.moviecatalog.api.response.dto.Movie;
+import com.rntgroup.testingtask.moviecatalog.api.request.CreateMovieRequest;
+import com.rntgroup.testingtask.moviecatalog.api.request.UpdateMovieRequest;
+import com.rntgroup.testingtask.moviecatalog.api.response.dto.MovieDto;
+import com.rntgroup.testingtask.moviecatalog.domain.model.Movie;
 
 import java.util.Collection;
 
+/**
+ * Service to interact with {@link Movie}.
+ */
 public interface MovieService {
 
     /**
      * Gets all movies.
      *
-     * @return collection of {@link Movie} when it found an empty list otherwise.
+     * @return collection of {@link MovieDto} when it found an empty list otherwise.
      */
-    Collection<Movie> listMovies();
+    Collection<MovieDto> listMovies();
 
     /**
      * Gets list of movies by genre title.
      *
      * @param genreTitle genre title.
-     * @return collection of {@link Movie} when it found an empty list otherwise.
+     * @return collection of {@link MovieDto} when it found an empty list otherwise.
      */
-    Collection<Movie> getByGenre(String genreTitle);
+    Collection<MovieDto> getByGenre(String genreTitle);
 
     /**
      * Gets list of movies by first name or last name of movie's director or an actor.
@@ -27,45 +33,44 @@ public interface MovieService {
      * @param name first name or last name of movie's director or an actor.
      * @return collection of found movies.
      */
-    Collection<Movie> getByName(String name);
+    Collection<MovieDto> getByName(String name);
 
     /**
      * Finds list of movies by prefix in the title.
      *
      * @param prefix string that can be in the movie title.
-     * @return collection of {@link Movie} when it found an empty list otherwise.
+     * @return collection of {@link MovieDto} when it found an empty list otherwise.
      */
-    Collection<Movie> getByPrefixInTitle(String prefix);
+    Collection<MovieDto> getByPrefixInTitle(String prefix);
 
     /**
-     * Finds {@link Movie} by its identifier.
+     * Finds {@link MovieDto} by its identifier.
      *
      * @param id identifier
-     * @return {@link Movie} when it found an empty movie otherwise.
+     * @return {@link MovieDto} when it found an empty movie otherwise.
      */
-    Movie getById(String id);
+    MovieDto getById(String id);
 
     /**
-     * Deletes {@link Movie} by its identifier.
+     * Deletes {@link MovieDto} by its identifier.
      *
      * @return row number deleted.
      */
     int delete(String id);
 
     /**
-     * Creates {@link Movie}.
+     * Creates the movie in the data store.
      *
-     * @param toCreate movie to be created.
-     * @return {@link Movie} when it created an empty movie otherwise.
+     * @param request movie data to create movie.
+     * @return {@link MovieDto} when it created an empty movie otherwise.
      */
-    Movie create(Movie toCreate);
+    MovieDto create(CreateMovieRequest request);
 
     /**
-     * Updates {@link Movie}.
+     * Updates the movie in the data store.
      *
-     * @param id movie identifier.
-     * @param toUpdate movie to be updated.
-     * @return {@link Movie} when it updated an empty movie otherwise.
+     * @param request movie data to update a movie.
+     * @return {@link MovieDto} when it updated an empty movie otherwise.
      */
-    Movie update(String id, Movie toUpdate);
+    MovieDto update(UpdateMovieRequest request);
 }

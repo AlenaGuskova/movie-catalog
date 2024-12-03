@@ -16,43 +16,43 @@
         </preConditions>
 
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="3YYHSZMUWWR75DYY2XJIITS4LAS2KSCZP"/>
+            <column name="id" value="a05830f8-3af8-4f9a-bb45-a88688b9edce"/>
             <column name="title" value="драма"/>
         </insert>
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="PAWMQAPMCMWRAGUN2RIUADEMRZR2Y3WH="/>
+            <column name="id" value="622905a7-19db-4ae2-9a91-fd33e690206b"/>
             <column name="title" value="триллер"/>
         </insert>
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="QJIS4G5RM6Z4XDBLITW32655WOIIMWUBD"/>
+            <column name="id" value="6e0858e4-cec7-44ee-880a-1d571ce03ac2"/>
             <column name="title" value="фантастика"/>
         </insert>
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="RD4IXX5HU2CDTW23FL6Z6ZQEOOWQPMU7D"/>
+            <column name="id" value="9af3716a-d22d-4c64-8334-a94bca3ba190"/>
             <column name="title" value="аниме"/>
         </insert>
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="MZHPJANCLZTISDBANQHU3DVCZP5EDU3J9"/>
+            <column name="id" value="80bd39cc-e349-48fb-9c06-373fe9d04768"/>
             <column name="title" value="фэнтези"/>
         </insert>
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="W6Q3AK5E56UHP22IABOCJO2ZXBI5RXPNS"/>
+            <column name="id" value="3706d099-765c-476a-8692-d52d637d3ebb"/>
             <column name="title" value="криминал"/>
         </insert>
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="CB74INE5AU5KGFNKIO3FGI7XB75N53R2V"/>
+            <column name="id" value="a4b2c136-f312-4ddc-9655-a5937eb5c99b"/>
             <column name="title" value="комедия"/>
         </insert>
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="JLEWEWDQITKWSBB2EQKJDDWU3FNAVGZJC"/>
+            <column name="id" value="27a33184-9500-4847-b83b-647de0538b2b"/>
             <column name="title" value="приключения"/>
         </insert>
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="ZFJ3VHIDOW4NXQG5JOWR5FDNWE3BYSOXK"/>
+            <column name="id" value="7276a01f-111c-4f0f-936f-697b2ffc9c8f"/>
             <column name="title" value="детектив"/>
         </insert>
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="6JZO27DDILMXTBBYA3LA2GVKTME6THEF$"/>
+            <column name="id" value="841a06c2-7d9f-4399-a337-0e813e931575"/>
             <column name="title" value="военный"/>
         </insert>
     </changeSet>

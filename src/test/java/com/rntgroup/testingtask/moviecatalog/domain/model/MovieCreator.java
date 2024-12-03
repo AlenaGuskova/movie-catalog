@@ -1,19 +1,27 @@
 package com.rntgroup.testingtask.moviecatalog.domain.model;
 
-import com.rntgroup.testingtask.moviecatalog.api.response.dto.Actor;
-import com.rntgroup.testingtask.moviecatalog.api.response.dto.Director;
-import com.rntgroup.testingtask.moviecatalog.api.response.dto.Genre;
-import com.rntgroup.testingtask.moviecatalog.api.response.dto.Movie;
+import com.rntgroup.testingtask.moviecatalog.api.response.dto.ActorDto;
+import com.rntgroup.testingtask.moviecatalog.api.response.dto.DirectorDto;
+import com.rntgroup.testingtask.moviecatalog.api.response.dto.GenreDto;
+import com.rntgroup.testingtask.moviecatalog.api.response.dto.MovieDto;
+import lombok.experimental.UtilityClass;
 
 import java.util.List;
 
+@UtilityClass
 public class MovieCreator {
 
-    public static MovieEntity createMovieEntity(String id, String title,
-                                                DirectorEntity director,
-                                                List<GenreEntity> genres,
-                                                List<ActorEntity> actors) {
-        return new MovieEntity()
+    public static Movie createMovie(String id, String title) {
+        return new Movie()
+                .setId(id)
+                .setTitle(title);
+    }
+
+    public static Movie createMovie(String id, String title,
+                                    Director director,
+                                    List<Genre> genres,
+                                    List<Actor> actors) {
+        return new Movie()
                 .setId(id)
                 .setTitle(title)
                 .setGenres(genres)
@@ -21,16 +29,23 @@ public class MovieCreator {
                 .setActors(actors);
     }
 
-    public static Movie createMovie(String id, String title,
-                                    Director director,
-                                    List<Genre> genres,
-                                    List<Actor> actors) {
-        return Movie.builder()
+    public static MovieDto createMovieDto(String id, String title,
+                                          DirectorDto directorDto,
+                                          List<GenreDto> genres,
+                                          List<ActorDto> actors) {
+        return MovieDto.builder()
                 .id(id)
                 .title(title)
-                .director(director)
+                .director(directorDto)
                 .genres(genres)
                 .actors(actors)
+                .build();
+    }
+
+    public static MovieDto createMovieDto(String id, String title) {
+        return MovieDto.builder()
+                .id(id)
+                .title(title)
                 .build();
     }
 }

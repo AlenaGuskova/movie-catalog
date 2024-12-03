@@ -1,8 +1,9 @@
 INSERT INTO movie (id, title, director_id)
-VALUES ('ANLGF35FKR7H22X7Y4QI75E7ADKGDNGK9', '1+1', 'VAWDZWKY3PS45TC7KYAVRQKSEGSMXKPJ3');
+VALUES ('d890bbaf-f8e7-4c47-861b-e9368fabbd02', '1+1', '544e0aef-cb6f-413e-8e56-667c2f739e4d');
 
 INSERT INTO movie (id, title, director_id)
-VALUES ('VONQUE7X4WTQ4UQK4GLL723UVHD3MENBN', 'Властелин колец: Возвращение короля', 'VUBMYE5Y3DWAV6DPXYWXR7HD6P3T7QXUU');
+VALUES ('2d21855e-cd44-48b5-9f38-b3d5786b52bd', 'Властелин колец: Возвращение короля', '5483a2d9-6fa8-4ab9-b82a-cd032094dd12');
 
-INSERT INTO movie (id, title, director_id)
-VALUES ('GPSUXXKYX77FXD72HJMDSDV77N5MHXJ3E', 'Унесённые призраками', 'IVAX5QJPMSWLYUJ6PK3JFKZB6NSCXZ2SH');
+-- Movie without director, genres and actors
+INSERT INTO movie (id, title)
+VALUES ('e74318b9-0b1b-41c9-8c89-9779ce0261f3', 'Унесённые призраками');

@@ -16,52 +16,52 @@
         </preConditions>
 
         <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="VAWDZWKY3PS45TC7KYAVRQKSEGSMXKPJ3"/>
+            <column name="id" value="544e0aef-cb6f-413e-8e56-667c2f739e4d"/>
             <column name="first_name" value="Оливье"/>
             <column name="last_name" value="Накаш"/>
         </insert>
         <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="BKDNH4Q3U63IT7IJCBBYGH4VU76LZEITV="/>
+            <column name="id" value="c0cbbb5e-d270-4cf5-b3c7-386c22532ced"/>
             <column name="first_name" value="Кристофер"/>
             <column name="last_name" value="Нолан"/>
         </insert>
         <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="ZMWYHH6TNXKSF6CTT5WYPZHOKMOYBLEHT"/>
+            <column name="id" value="ec355373-e2f4-4a5b-ad1d-4519cd699085"/>
             <column name="first_name" value="Фрэнк"/>
             <column name="last_name" value="Дарабонт"/>
         </insert>
         <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="VW3Q2MW7SPHLI6V6Y3ZFO6N5AMOSBDOUQ"/>
+            <column name="id" value="227a6ec8-0b33-41fb-b200-ce36a8a74c59"/>
             <column name="first_name" value="Мартин"/>
             <column name="last_name" value="Скорсезе"/>
         </insert>
         <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="43DQOO7SL2Z5S4YIPAKVO5WLWE7VPO2LP"/>
+            <column name="id" value="f0f690bc-2cbd-4ca3-be81-85ef6d3aafea"/>
             <column name="first_name" value="Дэвид"/>
             <column name="last_name" value="Финчер"/>
         </insert>
         <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="RQTWWSH5IC3TNYRPJ5YL5UYHAALON6KOP"/>
+            <column name="id" value="5e76c8d2-425a-4e5a-8986-2c59d7c4f1b1"/>
             <column name="first_name" value="Роберт"/>
             <column name="last_name" value="Земекис"/>
         </insert>
         <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="IVAX5QJPMSWLYUJ6PK3JFKZB6NSCXZ2SH"/>
+            <column name="id" value="1a3ea417-14b5-4525-bac8-58f7dfd613a6"/>
             <column name="first_name" value="Хаяо"/>
             <column name="last_name" value="Миядзаки"/>
         </insert>
         <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="VUBMYE5Y3DWAV6DPXYWXR7HD6P3T7QXUU"/>
+            <column name="id" value="5483a2d9-6fa8-4ab9-b82a-cd032094dd12"/>
             <column name="first_name" value="Питер"/>
             <column name="last_name" value="Джексон"/>
         </insert>
         <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="CAQKHTFUJW7MQDG2D7QSM5NQDJPW6JKTF"/>
+            <column name="id" value="7de2d8dc-2812-4082-acc2-1e9e569d42f2"/>
             <column name="first_name" value="Люк"/>
             <column name="last_name" value="Бессон"/>
         </insert>
         <insert tableName="director" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="EJTZ4NGV7GYRHNT4SYGA4BJXL46BAHTXZ"/>
+            <column name="id" value="9b9a1ca2-83e0-4a3a-b657-806576711ed3"/>
             <column name="first_name" value="Гай"/>
             <column name="last_name" value="Ричи"/>
         </insert>

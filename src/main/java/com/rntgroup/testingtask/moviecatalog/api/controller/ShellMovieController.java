@@ -1,9 +1,10 @@
 package com.rntgroup.testingtask.moviecatalog.api.controller;
 
+import com.rntgroup.testingtask.moviecatalog.api.request.CreateMovieRequest;
+import com.rntgroup.testingtask.moviecatalog.api.request.UpdateMovieRequest;
 import com.rntgroup.testingtask.moviecatalog.api.response.Response;
 import com.rntgroup.testingtask.moviecatalog.api.response.dto.ApiError;
-import com.rntgroup.testingtask.moviecatalog.api.response.dto.Director;
-import com.rntgroup.testingtask.moviecatalog.api.response.dto.Movie;
+import com.rntgroup.testingtask.moviecatalog.api.response.dto.MovieDto;
 import com.rntgroup.testingtask.moviecatalog.service.MovieService;
 import io.vavr.control.Try;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +16,13 @@ import org.springframework.shell.standard.ShellOption;
 import java.time.OffsetDateTime;
 import java.util.Collection;
 
+import static org.springframework.shell.standard.ShellOption.NULL;
+
+/**
+ * {@inheritDoc}
+ */
 @Slf4j
-@ShellComponent
+@ShellComponent("movie")
 @RequiredArgsConstructor
 public class ShellMovieController implements MovieController {
 
@@ -26,12 +32,13 @@ public class ShellMovieController implements MovieController {
      * {@inheritDoc}
      */
     @Override
-    @ShellMethod(key = "list-movies", value = "get full list of movies", prefix = "movie")
-    public Response<Collection<Movie>> listMovies() {
+    @ShellMethod(key = "list", prefix = "movie",
+            value = "get full list of movies")
+    public Response<Collection<MovieDto>> listMovies() {
         log.debug("Running the command to get list of movies");
         return Try.of(movieService::listMovies)
                 .map(Response::success)
-                .getOrElseGet(e -> Response.fail(getApiError(e)));
+                .getOrElseGet(e -> Response.fail(createApiErrorFrom(e)));
     }
 
     /**
@@ -40,11 +47,11 @@ public class ShellMovieController implements MovieController {
     @Override
     @ShellMethod(key = "get-by-genre", prefix = "movie",
             value = "get list of movies by genre. For example, get-by-genre --genre драма")
-    public Response<Collection<Movie>> getByGenre(@ShellOption(defaultValue = "") String genre) {
-        log.debug("Running the command to get list of movies by genre: {}", genre);
+    public Response<Collection<MovieDto>> getByGenre(String genre) {
+        log.debug("Running the command to get list of movies by genre:'{}'", genre);
         return Try.of(() -> movieService.getByGenre(genre))
                 .map(Response::success)
-                .getOrElseGet(e -> Response.fail(getApiError(e)));
+                .getOrElseGet(e -> Response.fail(createApiErrorFrom(e)));
     }
 
     /**
@@ -53,50 +60,50 @@ public class ShellMovieController implements MovieController {
     @Override
     @ShellMethod(key = "get-by-name", prefix = "movie",
             value = "get list of movies by name of director or actor. For example, get-by-name --name Нолан")
-    public Response<Collection<Movie>> getByName(@ShellOption(defaultValue = "") String name) {
-        log.debug("Running the command to get list of movies by name of director or actor: {}", name);
+    public Response<Collection<MovieDto>> getByName(String name) {
+        log.debug("Running the command to get list of movies by name of director or actor:'{}'", name);
         return Try.of(() -> movieService.getByName(name))
                 .map(Response::success)
-                .getOrElseGet(e -> Response.fail(getApiError(e)));
+                .getOrElseGet(e -> Response.fail(createApiErrorFrom(e)));
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    @ShellMethod(key = "get-by-prefix-in-title", prefix = "movie",
-            value = "get list of movies by prefix in movie title. For example, get-by-prefix-in-title --prefix колец")
-    public Response<Collection<Movie>> getByPrefixInTitle(@ShellOption String prefix) {
-        log.debug("Running the command to get list of movies by prefix in movie title: {}", prefix);
+    @ShellMethod(key = "get-by-prefix", prefix = "movie",
+            value = "get list of movies by prefix in movie title. For example, get-by-prefix --prefix колец")
+    public Response<Collection<MovieDto>> getByPrefixInTitle(String prefix) {
+        log.debug("Running the command to get list of movies by prefix in movie title:'{}'", prefix);
         return Try.of(() -> movieService.getByPrefixInTitle(prefix))
                 .map(Response::success)
-                .getOrElseGet(e -> Response.fail(getApiError(e)));
+                .getOrElseGet(e -> Response.fail(createApiErrorFrom(e)));
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    @ShellMethod(key = "get-by-id", prefix = "movie",
-            value = "get movie by ID. For example, get-by-id --id VONQUE7X4WTQ4UQK4GLL723UVHD3MENBN")
-    public Response<Movie> getById(@ShellOption String id) {
-        log.debug("Running the command to get movie by ID: {}", id);
+    @ShellMethod(key = "get", prefix = "movie",
+            value = "get movie by id. For example, get --id e74318b9-0b1b-41c9-8c89-9779ce0261f3")
+    public Response<MovieDto> getById(String id) {
+        log.debug("Running the command to get movie by id:'{}'", id);
         return Try.of(() -> movieService.getById(id))
                 .map(Response::success)
-                .getOrElseGet(e -> Response.fail(getApiError(e)));
+                .getOrElseGet(e -> Response.fail(createApiErrorFrom(e)));
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    @ShellMethod(key = "delete-by-id", prefix = "movie",
-            value = "delete movie by ID. For example, delete-by-id --id VVSAYW5BCLQGODBA6OMW3DVYBT53ACQMQ")
-    public Response<Integer> delete(@ShellOption String id) {
-        log.debug("Running the command to delete movie by ID: {}", id);
+    @ShellMethod(key = "delete", prefix = "movie",
+            value = "delete movie by id. For example, delete --id 27a25c5e-de50-4176-944b-6058472681b3")
+    public Response<Integer> delete(String id) {
+        log.debug("Running the command to delete movie by id:'{}'", id);
         return Try.of(() -> movieService.delete(id))
                 .map(Response::success)
-                .getOrElseGet(e -> Response.fail(getApiError(e)));
+                .getOrElseGet(e -> Response.fail(createApiErrorFrom(e)));
     }
 
     /**
@@ -106,20 +113,19 @@ public class ShellMovieController implements MovieController {
     @ShellMethod(key = "create", prefix = "movie",
             value = "create movie. For example, " +
                     "create --title \"Властелин колец: Две крепости\" " +
-                    "--directorId VUBMYE5Y3DWAV6DPXYWXR7HD6P3T7QXUU")
-    public Response<Movie> create(@ShellOption String title,
-                                  @ShellOption(defaultValue = "") String directorId) {
-        log.debug("Running the command to create movie by title: {} and directorId: {}", title, directorId);
-        var toCreate = Movie.builder()
-                .title(title)
-                .director(Director.builder()
-                        .id(directorId)
+                    "--directorId 5483a2d9-6fa8-4ab9-b82a-cd032094dd12")
+    public Response<MovieDto> create(String title,
+                                     @ShellOption(defaultValue = NULL) String directorId) {
+        var toCreate = new CreateMovieRequest(
+                CreateMovieRequest.MovieRequest.builder()
+                        .title(title)
+                        .directorId(directorId)
                         .build()
-                )
-                .build();
+        );
+        log.debug("Running the command to create movie by request:'{}'", toCreate);
         return Try.of(() -> movieService.create(toCreate))
                 .map(Response::success)
-                .getOrElseGet(e -> Response.fail(getApiError(e)));
+                .getOrElseGet(e -> Response.fail(createApiErrorFrom(e)));
     }
 
     /**
@@ -128,25 +134,24 @@ public class ShellMovieController implements MovieController {
     @Override
     @ShellMethod(key = "update", prefix = "movie",
             value = "update movie. For example, " +
-                    "update --id VONQUE7X4WTQ4UQK4GLL723UVHD3MENBN " +
+                    "update --id 2d21855e-cd44-48b5-9f38-b3d5786b52bd " +
                     "--title \"Властелин колец: Две крепости\"")
-    public Response<Movie> update(@ShellOption String id,
-                                  @ShellOption String title,
-                                  @ShellOption(defaultValue = "") String directorId) {
-        log.debug("Running the command to update movie by id: {}", id);
-        var toCreate = Movie.builder()
-                .title(title)
-                .director(Director.builder()
-                        .id(directorId)
+    public Response<MovieDto> update(String id, String title,
+                                     @ShellOption(defaultValue = NULL) String directorId) {
+        var toUpdate = new UpdateMovieRequest(
+                UpdateMovieRequest.MovieRequest.builder()
+                        .id(id)
+                        .title(title)
+                        .directorId(directorId)
                         .build()
-                )
-                .build();
-        return Try.of(() -> movieService.update(id, toCreate))
+        );
+        log.debug("Running the command to update movie by request:'{}'", toUpdate);
+        return Try.of(() -> movieService.update(toUpdate))
                 .map(Response::success)
-                .getOrElseGet(e -> Response.fail(getApiError(e)));
+                .getOrElseGet(e -> Response.fail(createApiErrorFrom(e)));
     }
 
-    private ApiError getApiError(Throwable e) {
+    private ApiError createApiErrorFrom(Throwable e) {
         return new ApiError(e.getLocalizedMessage(), OffsetDateTime.now());
     }
 }

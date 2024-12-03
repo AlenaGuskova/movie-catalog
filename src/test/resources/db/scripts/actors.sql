@@ -1,17 +1,11 @@
 INSERT INTO actor (id, first_name, last_name)
-VALUES ('MKZPSTCOCLW3G75LWXIMUINS6S5OK7ZLR', 'Франсуа', 'Клюзе');
+VALUES ('64887d99-ff1d-48da-b066-7dbeb0f464f3', 'Франсуа', 'Клюзе');
 
 INSERT INTO actor (id, first_name, last_name)
-VALUES ('WPHFPMOFVQPZXFF5CTDI53HKGQORWNUBU', 'Омар', 'Си');
+VALUES ('1abf568a-7106-49f1-b152-d002ba78df7d', 'Омар', 'Си');
 
 INSERT INTO actor (id, first_name, last_name)
-VALUES ('ZCZNQLEP5S3KQCKINZN3PE3F7I2GVY3S6', 'Элайджа', 'Вуд');
+VALUES ('3f825e80-f070-4829-85ce-62964a02854a', 'Элайджа', 'Вуд');
 
 INSERT INTO actor (id, first_name, last_name)
-VALUES ('UMVMV5SSVIFUXXHQQVJ4TVTZ74ENFKATR', 'Вигго', 'Мортенсен');
-
-INSERT INTO actor (id, first_name, last_name)
-VALUES ('NJ2ZJHZ6VGKRMLNTRXNJKM3B5K455HXIF', 'Руми', 'Хиираги');
-
-INSERT INTO actor (id, first_name, last_name)
-VALUES ('J67TUWVIS6YKLPVXDHVEZVJFTFQJLETRM', 'Мию', 'Ирино');
+VALUES ('4a42c006-c853-4795-b98e-3eefe6552940', 'Вигго', 'Мортенсен');
