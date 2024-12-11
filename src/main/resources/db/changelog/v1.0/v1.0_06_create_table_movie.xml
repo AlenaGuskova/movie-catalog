@@ -15,14 +15,14 @@
         </preConditions>
 
         <createTable tableName="movie" schemaName="${schema}">
-            <column name="id" type="VARCHAR(36)">
+            <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true"
                              primaryKeyName="pk_movie_id"/>
             </column>
             <column name="title" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="director_id" type="VARCHAR(36)"/>
+            <column name="director_id" type="UUID"/>
         </createTable>
 
         <addForeignKeyConstraint baseColumnNames="director_id"
@@ -48,10 +48,10 @@
         </preConditions>
 
         <createTable tableName="movie_genre" schemaName="${schema}">
-            <column name="movie_id" type="VARCHAR(36)">
+            <column name="movie_id" type="UUID">
                 <constraints nullable="false"/>
             </column>
-            <column name="genre_id" type="VARCHAR(36)">
+            <column name="genre_id" type="UUID">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -82,10 +82,10 @@
         </preConditions>
 
         <createTable tableName="movie_actor" schemaName="${schema}">
-            <column name="movie_id" type="VARCHAR(36)">
+            <column name="movie_id" type="UUID">
                 <constraints nullable="false"/>
             </column>
-            <column name="actor_id" type="VARCHAR(36)">
+            <column name="actor_id" type="UUID">
                 <constraints nullable="false"/>
             </column>
         </createTable>

@@ -1,7 +1,5 @@
 package com.rntgroup.testingtask.moviecatalog.api.response.dto;
 
-import lombok.Value;
-
 import java.time.OffsetDateTime;
 
 /**
@@ -9,8 +7,15 @@ import java.time.OffsetDateTime;
  * Here, message is an error description;
  * dateOccurred the date and time when the error occurred.
  */
-@Value
-public class ApiError {
-    String message;
-    OffsetDateTime dateOccurred;
+public record ApiError(String message, OffsetDateTime dateOccurred,
+                       ErrorRecord error) {
+
+    /**
+     * A class representing an error details on the API request fields.
+     *
+     * @param fieldName API request fields that caused the error.
+     * @param reason    message details on the field error.
+     */
+    public record ErrorRecord(String fieldName, String reason) {
+    }
 }

@@ -1,11 +1,10 @@
 package com.rntgroup.testingtask.moviecatalog.domain.repository;
 
+import java.util.Collection;
+import java.util.List;
 import com.rntgroup.testingtask.moviecatalog.domain.exception.DataAccessException;
 import com.rntgroup.testingtask.moviecatalog.domain.exception.ResourceNotFoundException;
 import com.rntgroup.testingtask.moviecatalog.domain.model.Movie;
-
-import java.util.Collection;
-import java.util.List;
 
 /**
  * DB repository for {@link Movie}.
@@ -44,7 +43,8 @@ public interface MovieRepository {
      *
      * @param movie to be updated in the database.
      * @return updated movie.
-     * @throws DataAccessException when dao access exception happens.
+     * @throws DataAccessException       when dao access exception happens.
+     * @throws ResourceNotFoundException when movie was not found by its identifier.
      */
     Movie update(Movie movie);
 
@@ -53,7 +53,8 @@ public interface MovieRepository {
      *
      * @param id identifier
      * @return row number deleted.
-     * @throws DataAccessException when dao access exception happens.
+     * @throws DataAccessException       when dao access exception happens.
+     * @throws ResourceNotFoundException when movie was not found by its identifier.
      */
     int delete(String id);
 

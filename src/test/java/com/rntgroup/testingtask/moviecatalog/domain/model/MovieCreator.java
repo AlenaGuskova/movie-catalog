@@ -1,20 +1,18 @@
 package com.rntgroup.testingtask.moviecatalog.domain.model;
 
+import java.util.List;
+import java.util.UUID;
 import com.rntgroup.testingtask.moviecatalog.api.response.dto.ActorDto;
 import com.rntgroup.testingtask.moviecatalog.api.response.dto.DirectorDto;
 import com.rntgroup.testingtask.moviecatalog.api.response.dto.GenreDto;
 import com.rntgroup.testingtask.moviecatalog.api.response.dto.MovieDto;
 import lombok.experimental.UtilityClass;
 
-import java.util.List;
-
 @UtilityClass
 public class MovieCreator {
 
     public static Movie createMovie(String id, String title) {
-        return new Movie()
-                .setId(id)
-                .setTitle(title);
+        return createMovie(id, title, null, null, null);
     }
 
     public static Movie createMovie(String id, String title,
@@ -22,7 +20,7 @@ public class MovieCreator {
                                     List<Genre> genres,
                                     List<Actor> actors) {
         return new Movie()
-                .setId(id)
+                .setId(UUID.fromString(id))
                 .setTitle(title)
                 .setGenres(genres)
                 .setDirector(director)
@@ -30,22 +28,17 @@ public class MovieCreator {
     }
 
     public static MovieDto createMovieDto(String id, String title,
-                                          DirectorDto directorDto,
+                                          DirectorDto director,
                                           List<GenreDto> genres,
                                           List<ActorDto> actors) {
-        return MovieDto.builder()
-                .id(id)
-                .title(title)
-                .director(directorDto)
-                .genres(genres)
-                .actors(actors)
-                .build();
+        return new MovieDto(id, title, director, genres, actors);
     }
 
     public static MovieDto createMovieDto(String id, String title) {
-        return MovieDto.builder()
-                .id(id)
-                .title(title)
-                .build();
+        return createMovieDto(id, title, null, null, null);
+    }
+
+    public static MovieDto createMovieDto(String id, String title, DirectorDto director) {
+        return createMovieDto(id, title, director, null, null);
     }
 }

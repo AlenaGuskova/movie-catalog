@@ -17,7 +17,7 @@ public interface MovieController {
      * @return collection of {@link MovieDto} when it found an empty list otherwise.
      * When something went wrong it returns {@link ApiError}.
      */
-    Response<Collection<MovieDto>> listMovies();
+    Response<Collection<MovieDto>> getMovies();
 
     /**
      * Gets list of movies by genre title.

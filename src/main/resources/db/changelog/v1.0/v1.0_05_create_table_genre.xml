@@ -15,7 +15,7 @@
         </preConditions>
 
         <createTable tableName="genre" schemaName="${schema}">
-            <column name="id" type="VARCHAR(36)">
+            <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true"
                              primaryKeyName="pk_genre_id"/>
             </column>
@@ -23,5 +23,9 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <createIndex indexName="idx_genre_on_title" tableName="genre"
+                     schemaName="${schema}">
+            <column name="title"/>
+        </createIndex>
     </changeSet>
 </databaseChangeLog>

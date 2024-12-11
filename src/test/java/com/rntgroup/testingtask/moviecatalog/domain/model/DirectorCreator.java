@@ -1,5 +1,6 @@
 package com.rntgroup.testingtask.moviecatalog.domain.model;
 
+import java.util.UUID;
 import com.rntgroup.testingtask.moviecatalog.api.response.dto.DirectorDto;
 import lombok.experimental.UtilityClass;
 
@@ -9,25 +10,21 @@ public class DirectorCreator {
     public static Director createDirector(String id, String firstName,
                                           String lastName) {
         return new Director()
-                .setId(id)
+                .setId(UUID.fromString(id))
                 .setFirstName(firstName)
                 .setLastName(lastName);
     }
 
     public static Director createDirector(String id) {
-        return new Director().setId(id);
+        return createDirector(id, null, null);
     }
 
     public static DirectorDto createDirectorDto(String id, String firstName,
                                                 String lastName) {
-        return DirectorDto.builder()
-                .id(id)
-                .firstName(firstName)
-                .lastName(lastName)
-                .build();
+        return new DirectorDto(id, firstName, lastName);
     }
 
     public static DirectorDto createDirectorDto(String id) {
-        return DirectorDto.builder().id(id).build();
+        return createDirectorDto(id, null, null);
     }
 }

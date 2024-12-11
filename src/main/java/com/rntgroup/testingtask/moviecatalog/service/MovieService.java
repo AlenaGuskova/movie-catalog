@@ -17,7 +17,7 @@ public interface MovieService {
      *
      * @return collection of {@link MovieDto} when it found an empty list otherwise.
      */
-    Collection<MovieDto> listMovies();
+    Collection<MovieDto> getMovies();
 
     /**
      * Gets list of movies by genre title.

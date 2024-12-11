@@ -1,15 +1,15 @@
 package com.rntgroup.testingtask.moviecatalog.domain.model;
 
+import java.util.List;
+import java.util.UUID;
 import lombok.Data;
 import lombok.experimental.Accessors;
-
-import java.util.List;
 
 @Data
 @Accessors(chain = true)
 public class Movie {
 
-    private String id;
+    private UUID id;
     private String title;
     private Director director;
     private List<Genre> genres;

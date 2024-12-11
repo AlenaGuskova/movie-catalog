@@ -1,5 +1,7 @@
 package com.rntgroup.testingtask.moviecatalog.service.implementation;
 
+import java.util.Collection;
+import java.util.Optional;
 import com.rntgroup.testingtask.moviecatalog.api.request.CreateMovieRequest;
 import com.rntgroup.testingtask.moviecatalog.api.request.UpdateMovieRequest;
 import com.rntgroup.testingtask.moviecatalog.api.response.dto.MovieDto;
@@ -10,9 +12,6 @@ import com.rntgroup.testingtask.moviecatalog.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Collection;
-import java.util.Optional;
 
 /**
  * {@inheritDoc}
@@ -30,7 +29,7 @@ public class MovieServiceImpl implements MovieService {
      * {@inheritDoc}
      */
     @Override
-    public Collection<MovieDto> listMovies() {
+    public Collection<MovieDto> getMovies() {
         return movieRepository.findAll()
                 .stream()
                 .map(movieMapper::toDto)
@@ -93,14 +92,14 @@ public class MovieServiceImpl implements MovieService {
     @Override
     @Transactional
     public MovieDto create(CreateMovieRequest request) {
-        var resource = request.getResource();
-        return Optional.ofNullable(resource.getDirectorId())
+        var movie = request.movie();
+        return Optional.ofNullable(movie.directorId())
                 .map(directorRepository::findById)
-                .map(director -> movieMapper.toResource(resource).setDirector(director))
-                .or(() -> Optional.of(movieMapper.toResource(resource)))
+                .map(director -> movieMapper.toResource(movie).setDirector(director))
+                .or(() -> Optional.of(movieMapper.toResource(movie)))
                 .map(movieRepository::save)
                 .map(movieMapper::toDto)
-                .orElse(MovieDto.builder().build());
+                .orElse(getEmptyMovie());
     }
 
     /**
@@ -109,13 +108,17 @@ public class MovieServiceImpl implements MovieService {
     @Override
     @Transactional
     public MovieDto update(UpdateMovieRequest request) {
-        var resource = request.getResource();
-        return Optional.ofNullable(resource.getDirectorId())
+        var movie = request.movie();
+        return Optional.ofNullable(movie.directorId())
                 .map(directorRepository::findById)
-                .map(director -> movieMapper.toResource(resource).setDirector(director))
-                .or(() -> Optional.of(movieMapper.toResource(resource)))
+                .map(director -> movieMapper.toResource(movie).setDirector(director))
+                .or(() -> Optional.of(movieMapper.toResource(movie)))
                 .map(movieRepository::update)
                 .map(movieMapper::toDto)
-                .orElse(MovieDto.builder().build());
+                .orElse(getEmptyMovie());
+    }
+
+    private MovieDto getEmptyMovie() {
+        return new MovieDto(null, null, null, null, null);
     }
 }

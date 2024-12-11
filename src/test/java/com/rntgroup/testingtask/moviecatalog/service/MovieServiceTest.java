@@ -1,5 +1,6 @@
 package com.rntgroup.testingtask.moviecatalog.service;
 
+import java.util.List;
 import com.rntgroup.testingtask.moviecatalog.api.request.CreateMovieRequest;
 import com.rntgroup.testingtask.moviecatalog.api.request.UpdateMovieRequest;
 import com.rntgroup.testingtask.moviecatalog.domain.mapper.MovieMapper;
@@ -12,8 +13,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.List;
 
 import static com.rntgroup.testingtask.moviecatalog.domain.model.ActorCreator.createActor;
 import static com.rntgroup.testingtask.moviecatalog.domain.model.ActorCreator.createActorDto;
@@ -43,16 +42,16 @@ class MovieServiceTest {
     }
 
     @Test
-    @DisplayName("Should list all movies")
-    void shouldListMovies() {
-        var movie1 = createMovie("1", "1+1");
-        var movie2 = createMovie("2", "Властелин колец: Братство Кольца");
+    @DisplayName("Should get all movies")
+    void shouldGetMovies() {
+        var movie1 = createMovie("5483a2d9-6fa8-4ab9-b82a-cd032094dd12", "1+1");
+        var movie2 = createMovie("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Властелин колец: Братство Кольца");
         when(movieRepository.findAll()).thenReturn(List.of(movie1, movie2));
 
-        var actualMovies = underTest.listMovies();
+        var actualMovies = underTest.getMovies();
 
-        var expectedMovie1 = createMovieDto("1", "1+1");
-        var expectedMovie2 = createMovieDto("2", "Властелин колец: Братство Кольца");
+        var expectedMovie1 = createMovieDto("5483a2d9-6fa8-4ab9-b82a-cd032094dd12", "1+1");
+        var expectedMovie2 = createMovieDto("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Властелин колец: Братство Кольца");
         assertThat(actualMovies).hasSize(2)
                 .containsExactly(expectedMovie1, expectedMovie2);
     }
@@ -60,15 +59,15 @@ class MovieServiceTest {
     @Test
     @DisplayName("Should get movies by genre")
     void shouldGetMoviesByGenre() {
-        var movie1 = createMovie("1", "1+1");
-        var movie2 = createMovie("2", "Властелин колец: Братство Кольца");
+        var movie1 = createMovie("5483a2d9-6fa8-4ab9-b82a-cd032094dd12", "1+1");
+        var movie2 = createMovie("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Властелин колец: Братство Кольца");
         when(movieRepository.findByGenreIgnoreCase("драма"))
                 .thenReturn(List.of(movie1, movie2));
 
         var actualMovies = underTest.getByGenre("драма");
 
-        var expectedMovie1 = createMovieDto("1", "1+1");
-        var expectedMovie2 = createMovieDto("2", "Властелин колец: Братство Кольца");
+        var expectedMovie1 = createMovieDto("5483a2d9-6fa8-4ab9-b82a-cd032094dd12", "1+1");
+        var expectedMovie2 = createMovieDto("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Властелин колец: Братство Кольца");
         assertThat(actualMovies).hasSize(2)
                 .containsExactly(expectedMovie1, expectedMovie2);
     }
@@ -76,7 +75,7 @@ class MovieServiceTest {
     @Test
     @DisplayName("Should get movies by name")
     void shouldGetMoviesByName() {
-        var movie = createMovie("2", "Властелин колец: Возвращение короля");
+        var movie = createMovie("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Властелин колец: Возвращение короля");
         when(movieRepository.findByNameIgnoreCase("джексон"))
                 .thenReturn(List.of(movie));
 
@@ -84,13 +83,14 @@ class MovieServiceTest {
 
         assertThat(actualMovies)
                 .hasSize(1)
-                .containsExactly(createMovieDto("2", "Властелин колец: Возвращение короля"));
+                .containsExactly(createMovieDto("2d21855e-cd44-48b5-9f38-b3d5786b52bd",
+                        "Властелин колец: Возвращение короля"));
     }
 
     @Test
     @DisplayName("Should get movies by prefix in movie title")
     void shouldGetMoviesByPrefixInTitle() {
-        var movie = createMovie("2", "Властелин колец: Возвращение короля");
+        var movie = createMovie("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Властелин колец: Возвращение короля");
         when(movieRepository.findByPrefixInTitleIgnoreCase("колец"))
                 .thenReturn(List.of(movie));
 
@@ -98,31 +98,32 @@ class MovieServiceTest {
 
         assertThat(actualMovies)
                 .hasSize(1)
-                .containsExactly(createMovieDto("2", "Властелин колец: Возвращение короля"));
+                .containsExactly(createMovieDto("2d21855e-cd44-48b5-9f38-b3d5786b52bd",
+                        "Властелин колец: Возвращение короля"));
     }
 
     @Test
     @DisplayName("Should get movie by id")
     void shouldGetMovieById() {
-        var movie = createMovie("id", "Властелин колец: Братство Кольца",
-                createDirector("1", "Питер", "Джексон"),
-                List.of(createGenre("3", "фэнтези"),
-                        createGenre("4", "приключения"),
-                        createGenre("5", "драма")),
-                List.of(createActor("3", "Элайджа", "Вуд"),
-                        createActor("4", "Вигго", "Мортенсен"))
+        var movie = createMovie("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Властелин колец: Братство Кольца",
+                createDirector("5483a2d9-6fa8-4ab9-b82a-cd032094dd12", "Питер", "Джексон"),
+                List.of(createGenre("80bd39cc-e349-48fb-9c06-373fe9d04768", "фэнтези"),
+                        createGenre("27a33184-9500-4847-b83b-647de0538b2b", "приключения"),
+                        createGenre("a05830f8-3af8-4f9a-bb45-a88688b9edce", "драма")),
+                List.of(createActor("3f825e80-f070-4829-85ce-62964a02854a", "Элайджа", "Вуд"),
+                        createActor("4a42c006-c853-4795-b98e-3eefe6552940", "Вигго", "Мортенсен"))
         );
-        when(movieRepository.findById("id")).thenReturn(movie);
+        when(movieRepository.findById("2d21855e-cd44-48b5-9f38-b3d5786b52bd")).thenReturn(movie);
 
-        var actualMovie = underTest.getById("id");
+        var actualMovie = underTest.getById("2d21855e-cd44-48b5-9f38-b3d5786b52bd");
 
-        var expectedMovie = createMovieDto("id", "Властелин колец: Братство Кольца",
-                createDirectorDto("1", "Питер", "Джексон"),
-                List.of(createGenreDto("3", "фэнтези"),
-                        createGenreDto("4", "приключения"),
-                        createGenreDto("5", "драма")),
-                List.of(createActorDto("3", "Элайджа", "Вуд"),
-                        createActorDto("4", "Вигго", "Мортенсен"))
+        var expectedMovie = createMovieDto("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Властелин колец: Братство Кольца",
+                createDirectorDto("5483a2d9-6fa8-4ab9-b82a-cd032094dd12", "Питер", "Джексон"),
+                List.of(createGenreDto("80bd39cc-e349-48fb-9c06-373fe9d04768", "фэнтези"),
+                        createGenreDto("27a33184-9500-4847-b83b-647de0538b2b", "приключения"),
+                        createGenreDto("a05830f8-3af8-4f9a-bb45-a88688b9edce", "драма")),
+                List.of(createActorDto("3f825e80-f070-4829-85ce-62964a02854a", "Элайджа", "Вуд"),
+                        createActorDto("4a42c006-c853-4795-b98e-3eefe6552940", "Вигго", "Мортенсен"))
         );
         assertThat(actualMovie).isEqualTo(expectedMovie);
     }
@@ -130,54 +131,44 @@ class MovieServiceTest {
     @Test
     @DisplayName("Should delete movie")
     void shouldDeleteMovieById() {
-        when(movieRepository.delete("id")).thenReturn(1);
+        when(movieRepository.delete("2d21855e-cd44-48b5-9f38-b3d5786b52bd")).thenReturn(1);
 
-        assertThat(underTest.delete("id")).isEqualTo(1);
+        assertThat(underTest.delete("2d21855e-cd44-48b5-9f38-b3d5786b52bd")).isEqualTo(1);
     }
 
     @Test
     @DisplayName("Should update movie")
     void shouldUpdateMovieById() {
-        var movie = createMovie("id", "Новый Властелин колец",
-                createDirector("directorId", "Питер", "Джексон"), null, null);
+        var movie = createMovie("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Новый Властелин колец",
+                createDirector("5483a2d9-6fa8-4ab9-b82a-cd032094dd12", "Питер", "Джексон"), null, null);
         when(movieRepository.update(any())).thenReturn(movie);
 
-        var toUpdate = new UpdateMovieRequest(
-                UpdateMovieRequest.MovieRequest.builder()
-                        .id("id")
-                        .title("Новый Властелин колец")
-                        .directorId("directorId")
-                        .build()
+        var requestToUpdateMovie = new UpdateMovieRequest(
+                new UpdateMovieRequest.MovieRequest("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Новый Властелин колец", "5483a2d9-6fa8-4ab9-b82a-cd032094dd12")
         );
-        var actualMovie = underTest.update(toUpdate);
+        var actualMovie = underTest.update(requestToUpdateMovie);
 
         assertThat(actualMovie).isEqualTo(
-                createMovieDto("id", "Новый Властелин колец",
-                        createDirectorDto("directorId", "Питер", "Джексон"),
-                        null, null)
+                createMovieDto("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Новый Властелин колец",
+                        createDirectorDto("5483a2d9-6fa8-4ab9-b82a-cd032094dd12", "Питер", "Джексон"))
         );
     }
 
     @Test
     @DisplayName("Should save movie")
     void shouldSaveMovie() {
-        var movie = createMovie("id", "Новый Властелин колец",
-                createDirector("directorId", "Питер", "Джексон"), null, null);
+        var movie = createMovie("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Новый Властелин колец",
+                createDirector("5483a2d9-6fa8-4ab9-b82a-cd032094dd12", "Питер", "Джексон"), null, null);
         when(movieRepository.save(any())).thenReturn(movie);
 
-        var toCreate = new CreateMovieRequest(
-                CreateMovieRequest.MovieRequest.builder()
-                        .id("id")
-                        .title("Новый Властелин колец")
-                        .directorId("directorId")
-                        .build()
+        var requestToCreateMovie = new CreateMovieRequest(
+                new CreateMovieRequest.MovieRequest("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Новый Властелин колец", "5483a2d9-6fa8-4ab9-b82a-cd032094dd12")
         );
-        var actualMovie = underTest.create(toCreate);
+        var actualMovie = underTest.create(requestToCreateMovie);
 
         assertThat(actualMovie).isEqualTo(
-                createMovieDto("id", "Новый Властелин колец",
-                        createDirectorDto("directorId", "Питер", "Джексон"),
-                        null, null)
+                createMovieDto("2d21855e-cd44-48b5-9f38-b3d5786b52bd", "Новый Властелин колец",
+                        createDirectorDto("5483a2d9-6fa8-4ab9-b82a-cd032094dd12", "Питер", "Джексон"))
         );
     }
 }

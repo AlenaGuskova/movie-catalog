@@ -1,5 +1,6 @@
 package com.rntgroup.testingtask.moviecatalog.domain.model;
 
+import java.util.UUID;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -7,7 +8,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class Director {
 
-    private String id;
+    private UUID id;
     private String firstName;
     private String lastName;
 }

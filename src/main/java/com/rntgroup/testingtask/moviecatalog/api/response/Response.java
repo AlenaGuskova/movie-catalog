@@ -24,7 +24,7 @@ public class Response<T> {
         return new Response<>(value, null);
     }
 
-    public static <T> Response<T> fail(ApiError apiError) {
+    public static <T> Response<T> failure(ApiError apiError) {
         return new Response<>(null, apiError);
     }
 }

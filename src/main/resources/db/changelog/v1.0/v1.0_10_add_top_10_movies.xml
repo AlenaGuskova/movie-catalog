@@ -46,7 +46,7 @@
                     value="227a6ec8-0b33-41fb-b200-ce36a8a74c59"/>
         </insert>
         <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
-            <column name="id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="id" value="a26ca827-a750-4e4f-bbc6-7b99238ccacf"/>
             <column name="title" value="Бойцовский клуб"/>
             <column name="director_id"
                     value="f0f690bc-2cbd-4ca3-be81-85ef6d3aafea"/>
@@ -135,15 +135,15 @@
             <column name="genre_id" value="a05830f8-3af8-4f9a-bb45-a88688b9edce"/>
         </insert>
         <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="movie_id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="movie_id" value="a26ca827-a750-4e4f-bbc6-7b99238ccacf"/>
             <column name="genre_id" value="622905a7-19db-4ae2-9a91-fd33e690206b"/>
         </insert>
         <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="movie_id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="movie_id" value="a26ca827-a750-4e4f-bbc6-7b99238ccacf"/>
             <column name="genre_id" value="a05830f8-3af8-4f9a-bb45-a88688b9edce"/>
         </insert>
         <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
-            <column name="movie_id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="movie_id" value="a26ca827-a750-4e4f-bbc6-7b99238ccacf"/>
             <column name="genre_id" value="3706d099-765c-476a-8692-d52d637d3ebb"/>
         </insert>
         <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
@@ -242,11 +242,11 @@
             <column name="actor_id" value="9d84e532-c8c4-47bc-ac48-5d1082eca3d8"/>
         </insert>
         <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
-            <column name="movie_id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="movie_id" value="a26ca827-a750-4e4f-bbc6-7b99238ccacf"/>
             <column name="actor_id" value="63a29df0-435c-49f6-b125-b823b1fde5ce"/>
         </insert>
         <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
-            <column name="movie_id" value="XB6ZNQ4QBHSOASSBGZ5SNBRCWL4M2JEP="/>
+            <column name="movie_id" value="a26ca827-a750-4e4f-bbc6-7b99238ccacf"/>
             <column name="actor_id" value="f54c3356-612a-4cc4-8da3-2ef59f102056"/>
         </insert>
         <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">
