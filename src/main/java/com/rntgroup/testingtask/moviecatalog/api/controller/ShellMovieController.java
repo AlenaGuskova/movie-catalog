@@ -19,7 +19,7 @@ import static org.springframework.shell.standard.ShellOption.NULL;
  * {@inheritDoc}
  */
 @Slf4j
-@ShellComponent("movie")
+@ShellComponent
 @RequiredArgsConstructor
 public final class ShellMovieController implements MovieController {
 

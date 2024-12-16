@@ -1,7 +1,4 @@
 spring:
-  shell:
-    interactive:
-      enabled: false
   liquibase:
     change-log: classpath:db/changelog/db.changelog.xml
     user: movie_service
@@ -15,8 +12,12 @@ spring:
     password: movieservicepass
 
 logging:
-  file:
-    name:
+  level:
+    root: INFO
+    liquibase: ERROR
+    com:
+      rntgroup: DEBUG
   threshold:
-    console: DEBUG
     file: ERROR
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %clr(%5p) %clr([%10.10t]){faint} %clr(%-40.40logger{39}){cyan} %clr(-){faint} %m%n%ex{5}"

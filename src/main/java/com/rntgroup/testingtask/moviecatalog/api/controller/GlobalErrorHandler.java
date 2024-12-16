@@ -31,7 +31,7 @@ public class GlobalErrorHandler {
                     createApiErrorFrom(getMessage("exception.resource.notFound.message"), exception);
             case ResourceFieldException exception ->
                     createApiErrorFrom(getMessage("exception.resource.field.message"), exception);
-            default ->
+            case null, default ->
                     new ApiError(getMessage("exception.common.message"), OffsetDateTime.now(), null);
         };
     }

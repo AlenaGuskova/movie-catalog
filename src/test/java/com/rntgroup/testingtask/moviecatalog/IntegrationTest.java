@@ -1,8 +1,6 @@
 package com.rntgroup.testingtask.moviecatalog;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.jdbc.core.JdbcOperations;
 import org.springframework.test.context.jdbc.Sql;
 
 @SpringBootTest
@@ -13,7 +11,4 @@ import org.springframework.test.context.jdbc.Sql;
 @Sql(value = "/db/scripts/truncate_db.sql",
         executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
 public class IntegrationTest {
-
-    @Autowired
-    protected JdbcOperations operations;
 }

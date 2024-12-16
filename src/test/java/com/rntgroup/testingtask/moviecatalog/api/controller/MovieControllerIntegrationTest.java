@@ -47,7 +47,7 @@ class MovieControllerIntegrationTest extends IntegrationTest {
             var expected3 = createMovieDto("e74318b9-0b1b-41c9-8c89-9779ce0261f3", "Унесённые призраками");
             assertThat(response.getContent())
                     .hasSize(3)
-                    .containsExactlyInAnyOrder(expected1, expected2, expected3);
+                    .containsExactly(expected1, expected2, expected3);
         }
 
         @Test

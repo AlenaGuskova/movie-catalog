@@ -2,6 +2,13 @@ spring:
   shell:
     interactive:
       enabled: true
+    script:
+      enabled: true
+    history:
+      enabled: true
+      name: shell-command.log
+    config:
+      location: logs/
   datasource:
     url: jdbc:h2:file:./db/movie_catalog;DB_CLOSE_DELAY=-1;AUTO_SERVER=TRUE;INIT=CREATE SCHEMA IF NOT EXISTS movie_schema\;SET SCHEMA movie_schema
     driver-class-name: org.h2.Driver
@@ -20,10 +27,9 @@ logging:
     root: INFO
     liquibase: ERROR
   file:
-    name: logs/application-debug.log
+    name: logs/application-info.log
   pattern:
     console: "%d{yyyy-MM-dd HH:mm:ss} %clr(%5p) %clr([%10.10t]){faint} %clr(%-40.40logger{39}){cyan} %clr(-){faint} %m%n%ex{5}"
     file: "%d{yyyy-MM-dd HH:mm:ss} %5p [%10.10t] %-40.40logger{39} - %m%n%ex{5}"
   threshold:
     console: ERROR
-    file: INFO

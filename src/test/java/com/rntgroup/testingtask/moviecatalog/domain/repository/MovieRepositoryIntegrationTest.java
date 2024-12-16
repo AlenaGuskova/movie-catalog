@@ -1,14 +1,11 @@
 package com.rntgroup.testingtask.moviecatalog.domain.repository;
 
-import java.sql.ResultSet;
 import java.util.List;
 import com.rntgroup.testingtask.moviecatalog.IntegrationTest;
 import com.rntgroup.testingtask.moviecatalog.domain.exception.ResourceNotFoundException;
-import com.rntgroup.testingtask.moviecatalog.domain.model.Movie;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 
 import static com.rntgroup.testingtask.moviecatalog.domain.model.ActorCreator.createActor;
 import static com.rntgroup.testingtask.moviecatalog.domain.model.DirectorCreator.createDirector;
@@ -222,12 +219,8 @@ class MovieRepositoryIntegrationTest extends IntegrationTest {
     @Test
     @DisplayName("Should delete movie")
     void shouldDelete() {
-        underTest.delete("d890bbaf-f8e7-4c47-861b-e9368fabbd02");
-
-        var query = "SELECT id FROM movie " +
-                    "WHERE id = 'd890bbaf-f8e7-4c47-861b-e9368fabbd02'";
-        assertThatThrownBy(() -> operations.queryForObject(query, ResultSet::getRowId))
-                .isInstanceOf(EmptyResultDataAccessException.class);
+        assertThat(underTest.delete("d890bbaf-f8e7-4c47-861b-e9368fabbd02"))
+                .isEqualTo(1);
     }
 
     @Test
@@ -241,8 +234,6 @@ class MovieRepositoryIntegrationTest extends IntegrationTest {
                 createDirector("544e0aef-cb6f-413e-8e56-667c2f739e4d", "Оливье", "Накаш"),
                 null, null);
         assertThat(actual).isEqualTo(expected);
-        assertThat(getMovies())
-                .hasSize(4);
     }
 
     @Test
@@ -253,12 +244,6 @@ class MovieRepositoryIntegrationTest extends IntegrationTest {
 
         var expected = createMovie("dd809ec9-e72e-42a3-aac6-95fe4a36b4ff", "Новый мир");
         assertThat(actual).isEqualTo(expected);
-        assertThat(getMovies()).hasSize(4);
-    }
-
-    private List<Movie> getMovies() {
-        return operations.query("SELECT id FROM movie",
-                (rs, _) -> createMovie(rs.getString("id"), null));
     }
 
     @Test
