@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.27.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+
+    <changeSet id="23_11_2024_create_table_movie" author="Alena_Guskova"
+               dbms="${dbms}">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="movie" schemaName="${schema}"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="movie" schemaName="${schema}">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true"
+                             primaryKeyName="pk_movie_id"/>
+            </column>
+            <column name="title" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="director_id" type="UUID"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="director_id"
+                                 baseTableName="movie"
+                                 baseTableSchemaName="${schema}"
+                                 constraintName="fk_movie_on_director"
+                                 referencedColumnNames="id"
+                                 referencedTableName="director"
+                                 referencedTableSchemaName="${schema}"/>
+
+        <createIndex indexName="idx_movie_on_title" tableName="movie"
+                     schemaName="${schema}">
+            <column name="title"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="23_11_2024_create_table_movie_genre" author="Alena_Guskova"
+               dbms="${dbms}">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="movie_genre" schemaName="${schema}"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="movie_genre" schemaName="${schema}">
+            <column name="movie_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="genre_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="movie_id"
+                                 baseTableName="movie_genre"
+                                 constraintName="fk_movie_genre_on_movie"
+                                 referencedColumnNames="id"
+                                 referencedTableName="movie"
+                                 baseTableSchemaName="${schema}"
+                                 referencedTableSchemaName="${schema}"/>
+
+        <addForeignKeyConstraint baseColumnNames="genre_id"
+                                 baseTableName="movie_genre"
+                                 constraintName="fk_movie_genre_on_genre"
+                                 referencedColumnNames="id"
+                                 referencedTableName="genre"
+                                 baseTableSchemaName="${schema}"
+                                 referencedTableSchemaName="${schema}"/>
+    </changeSet>
+
+    <changeSet id="23_11_2024_create_table_movie_actor" author="Alena_Guskova"
+               dbms="${dbms}">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="movie_actor" schemaName="${schema}"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="movie_actor" schemaName="${schema}">
+            <column name="movie_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="actor_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="movie_id"
+                                 baseTableName="movie_actor"
+                                 constraintName="fk_movie_actor_on_movie"
+                                 referencedColumnNames="id"
+                                 referencedTableName="movie"
+                                 baseTableSchemaName="${schema}"
+                                 referencedTableSchemaName="${schema}"/>
+
+        <addForeignKeyConstraint baseColumnNames="actor_id"
+                                 baseTableName="movie_actor"
+                                 constraintName="fk_movie_actor_on_actor"
+                                 referencedColumnNames="id"
+                                 referencedTableName="actor"
+                                 baseTableSchemaName="${schema}"
+                                 referencedTableSchemaName="${schema}"/>
+    </changeSet>
+</databaseChangeLog>

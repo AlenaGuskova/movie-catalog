@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <include file="v1.0_01_create_schema.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_02_create_user_movie_service.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_03_create_table_actor.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_04_create_table_director.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_05_create_table_genre.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_06_create_table_movie.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_07_add_top_10_genres.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_08_add_top_10_directors.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_09_add_20_actors.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_10_add_top_10_movies.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_11_create_audit_event.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_12_populate_audit_event.xml"
+             relativeToChangelogFile="true"/>
+</databaseChangeLog>
