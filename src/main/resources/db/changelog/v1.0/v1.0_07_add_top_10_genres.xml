@@ -9,10 +9,7 @@
     <changeSet id="25_11_2024_add_top_5_genres" author="Alena_Guskova"
                dbms="${dbms}">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
-                select count(*)
-                from ${schema}.genre
-            </sqlCheck>
+            <tableIsEmpty tableName="genre" schemaName="${schema}"/>
         </preConditions>
 
         <insert tableName="genre" dbms="${dbms}" schemaName="${schema}">

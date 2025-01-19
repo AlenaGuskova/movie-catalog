@@ -25,4 +25,8 @@
              relativeToChangelogFile="true"/>
     <include file="v1.0_10_add_top_10_movies.xml"
              relativeToChangelogFile="true"/>
+    <include file="v1.0_11_create_audit_event.xml"
+             relativeToChangelogFile="true"/>
+    <include file="v1.0_12_populate_audit_event.xml"
+             relativeToChangelogFile="true"/>
 </databaseChangeLog>

@@ -9,10 +9,7 @@
     <changeSet id="25_11_2024_add_top_10_movies" author="Alena_Guskova"
                dbms="${dbms}">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
-                select count(*)
-                from ${schema}.movie
-            </sqlCheck>
+            <tableIsEmpty tableName="movie" schemaName="${schema}"/>
         </preConditions>
 
         <insert tableName="movie" dbms="${dbms}" schemaName="${schema}">
@@ -80,10 +77,7 @@
     <changeSet id="25_11_2024_add_top_10_movie_genres" author="Alena_Guskova"
                dbms="${dbms}">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
-                select count(*)
-                from ${schema}.movie_genre
-            </sqlCheck>
+            <tableIsEmpty tableName="movie_genre" schemaName="${schema}"/>
         </preConditions>
 
         <insert tableName="movie_genre" dbms="${dbms}" schemaName="${schema}">
@@ -195,10 +189,7 @@
     <changeSet id="25_11_2024_add_top_10_movie_actors" author="Alena_Guskova"
                dbms="${dbms}">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
-                select count(*)
-                from ${schema}.movie_actor
-            </sqlCheck>
+            <tableIsEmpty tableName="movie_actor" schemaName="${schema}"/>
         </preConditions>
 
         <insert tableName="movie_actor" dbms="${dbms}" schemaName="${schema}">

@@ -10,6 +10,10 @@ spring:
     url: jdbc:h2:mem:movie_catalog;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS movie_schema\;SET SCHEMA movie_schema
     username: movie_service
     password: movieservicepass
+  messages:
+    encoding: UTF-8
+    basename: i18n.messages
+    fallback-to-system-locale: true
 
 logging:
   level:

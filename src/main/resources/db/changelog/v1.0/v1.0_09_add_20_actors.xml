@@ -9,10 +9,7 @@
     <changeSet id="25_11_2024_add_top_20_actors" author="Alena_Guskova"
                dbms="${dbms}">
         <preConditions onFail="MARK_RAN">
-            <sqlCheck expectedResult="0">
-                select count(*)
-                from ${schema}.actor
-            </sqlCheck>
+            <tableIsEmpty tableName="actor" schemaName="${schema}"/>
         </preConditions>
 
         <insert tableName="actor" dbms="${dbms}" schemaName="${schema}">
